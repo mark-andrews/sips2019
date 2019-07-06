@@ -78,9 +78,10 @@ We can create links to [here](https://www.improvingpsych.org/SIPS2019/).
 ```
 
 <!-- Put in a page break. If you must. 
+\pagebreak
 \newpage is similar, but 
 -->
-\pagebreak
+
 
 ![A cute monkey](monkey.jpg)
 
@@ -251,17 +252,37 @@ kable(summary(model)$coefficients)
 
 There are a number of things we can control with `kable`.
 
-format = 'latex', booktabs = TRUE, digits = 3
+
 ```{r kable_lm_2}
 kable(summary(model)$coefficients, format = 'latex')
 ```
 
-format = 'latex', booktabs = TRUE, digits = 3
+
 ```{r kable_lm_3}
 kable(summary(model)$coefficients, booktabs = TRUE)
 ```
 
-format = 'latex', booktabs = TRUE, digits = 3
 ```{r kable_lm_4}
-kable(summary(model)$coefficients, digits = 3)
+kable(summary(model)$coefficients, booktabs = TRUE, digits = 3)
 ```
+
+
+
+
+```{r kable_lm_5}
+library(kableExtra)
+kable(summary(model)$coefficients, booktabs = TRUE, digits = 3) %>% 
+  kable_styling(font_size = 7)
+
+```
+
+
+
+```{r kable_lm_6}
+library(kableExtra)
+kable(summary(model)$coefficients, booktabs = TRUE, digits = 3) %>% 
+  kable_styling(font_size = 7) %>%
+  row_spec(0, angle = -45)
+
+```
+
