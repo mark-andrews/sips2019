@@ -1,0 +1,13 @@
+```{r, echo=FALSE}
+set.seed(42)
+N <- 100
+x <- rnorm(N)
+Df <- data.frame(x = x, 
+                 y = 2 + 0.5*x + rnorm(N))
+ggplot(Df,
+       mapping = aes(x=x, y=y)) +
+  geom_point() +
+  stat_smooth(method='lm') +
+  theme_classic()
+
+```

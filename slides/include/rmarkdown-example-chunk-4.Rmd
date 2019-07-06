@@ -1,0 +1,10 @@
+```{r, echo=FALSE}
+set.seed(42)
+N <- 100
+x <- rnorm(N)
+Df <- data.frame(x = x, 
+                 y = 0.0 + 0.25*x + rnorm(N))
+
+M <- lm(y ~ x, data=Df)
+pander(summary(M))
+```

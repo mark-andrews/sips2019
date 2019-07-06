@@ -1,0 +1,16 @@
+```{r, echo=FALSE}
+set.seed(42)
+N <- 100
+x <- rnorm(N)
+Df <- data.frame(x = x, 
+                 y = 0.0 + 0.25*x + rnorm(N))
+M <- lm(y ~ x, data=Df)
+```
+
+The linear model is
+$$
+y_i = \alpha + \beta x_i + \epsilon_i, 
+\quad \text{for $i \in 1 \ldots N$}.
+$$
+
+The $R^2$ value is `r round(mean(summary(M)$r.sq),2)`.

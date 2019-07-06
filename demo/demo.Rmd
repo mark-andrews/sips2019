@@ -1,0 +1,236 @@
+---
+title: "From a *Tabular Rasa* to a Working [RMarkdown](https://rmarkdown.rstudio.com/) Document: A personal odyssey and adventure"
+author: |
+  | Mark Andrews
+  | The University of Life
+date: "`r Sys.Date()`"
+output: pdf_document 
+abstract: |
+  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ornare
+  vestibulum libero, nec sagittis odio placerat eget. Integer a varius orci.
+  Aenean posuere fringilla tortor, eu sodales massa lacinia vel. Vivamus augue
+  arcu, semper id scelerisque vel, condimentum ac justo. Fusce dictum rhoncus
+  enim ornare fermentum.
+editor_options: 
+  chunk_output_type: inline
+---
+
+```{r setup, echo=F}
+knitr::opts_chunk$set(message = FALSE)
+```
+
+<!-- In the workshop. We'll build this document from a complete blank. 
+It will slowly evolve from nothing, with additions and deletions to get to this 
+-->
+
+# Introduction
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ornare vestibulum
+libero, nec sagittis odio placerat eget. Integer a varius orci. Aenean posuere
+fringilla tortor, eu sodales massa lacinia vel. Vivamus augue arcu, semper id
+scelerisque vel, condimentum ac justo. Fusce dictum rhoncus enim ornare
+fermentum. Donec venenatis aliquam semper. Mauris facilisis placerat dolor vitae
+ultricies. Aliquam id dui nec eros consectetur rhoncus eu at ante. Integer erat
+sapien, gravida sit amet vehicula sit amet, facilisis et metus. Pellentesque
+maximus vulputate neque at lacinia.
+
+```{r random_numbers, include=FALSE}
+N <- 100
+x <- rnorm(N)
+mean(x)
+```
+
+We have `r N` random numbers. Their mean is `r round(mean(x), 2)`. Their median is `r round(median(x), 2)`. Their standard deviation is `r round(sd(x), 2)`.
+
+```{r load_packages}
+library(dplyr)
+```
+
+## Some basics of Markdown
+
+We make something emphasized like *this*, and bold like *this*, or both like ***this***. We can do sub~scripts~ and super^scripts^ (but there are other ways too). You can indicate that something is code as follows^[If you this on a Unix based system, you'll delete your entire hard drive. You have been warned]: `sudo rm -rf /`. You can have code in blocks too as follows:
+```
+from foobar import barfoo
+x = barfoo.foo()
+```
+The code just shown is Python. RMarkdown, or rather `knitr` with package called `reticulate`, can actually parse Python. We'll leave that aside for now, but we can easily get RMarkdown to syntax highlight our code.
+```python
+class Foobar(object):
+  def __init__(self):
+    self.x = 42
+```
+We can do this with R too:
+```r
+x <- rnorm(100, mean = 100, sd = 15)
+```
+or 
+```{r r_syntax_highlighting, echo=T, eval=F}
+x <- rnorm(100, mean = 100, sd = 15)
+```
+
+We can create links to [here](https://www.improvingpsych.org/SIPS2019/).
+
+
+
+<!-- Comments in the text are like this. -->
+```{r, include=F}
+# comments in code are like this
+```
+
+<!-- Put in a page break. If you must. 
+\newpage is similar, but 
+-->
+\pagebreak
+
+![A cute monkey](include/monkey.jpg)
+
+```{r, echo=F, include_image, fig.cap="The same cute monkey"}
+knitr::include_graphics('include/monkey.jpg')
+```
+
+```{r, echo=FALSE,fig.cap="Two monkeys side by side.",fig.show='hold',fig.align='center'}
+knitr::include_graphics(c('include/monkey.jpg', 'include/monkey.jpg'))
+```
+
+
+
+
+
+
+\pagebreak
+
+# Lists
+
+We can do unordered lists like this:
+
+* A thing
+* Another thing
+  * A thing on sublist
+  * Another thing on the sublist
+* Another other thing
+* And so on
+* And on
+
+We can enumerated list like this:
+
+1. The first thing
+1. The second thing
+    1. The first thing on sublist
+    1. The second thing on the sublist
+1. The third thing
+1. And so on
+1. And on
+
+And mixes of the two:
+
+We can enumerated list like this:
+
+1. The first thing
+1. The second thing
+    * Another thing
+    * Yet another
+1. The third thing
+1. And so on
+1. And on
+
+Another type of list is a *definition* list.
+
+A monkey
+
+: A very cute blue animal.
+
+A cat
+
+: A handsome creature with whiskers and claws.
+
+An owl
+
+: A bird type thing, but very wise.
+
+# Quotes
+
+> “There is no data that can be displayed in a pie chart that cannot be displayed better in some other type of chart.”
+> 
+> --- John W. Tukey
+
+# Math(s)
+
+In RMarkdown, especially when we use `pdf_document`, we can use the full power of the \TeX/\LaTeX\ typesetting languages, which were designed for mathematical and technical content. There is a lot to learn, but it is worth it.
+
+For inline \LaTeX, use single `$` surrounding the code. For example, `$\alpha$` gives us $\alpha$, or `$e^\pi$` gives us $e^\pi$ or `\omega + \xi + \theta = \chi^2` gives us $\omega + \xi + \theta = \chi^2$. For so called *display* math, you use `$$`. For example,
+```
+y_i = \alpha + \beta x_i + \epsilon_i
+```
+gives us
+$$
+y_i = \alpha + \beta x_i + \epsilon_i
+$$
+
+## Some more examples.
+
+This one uses `\sim` and `quad` and `\text`.
+
+$$
+y_i = \alpha + \beta x_i + \epsilon_i\quad \epsilon_i \sim N(0, \sigma^2)\quad\text{for $i \in 1\ldots n$}.
+$$
+
+Here's the use of `\sum`, `\prod`, `\log`, and `\left(`...`\right)`.
+
+$$
+\sum_{i=0} \log{x_i} = \log\left(\prod_i x_i\right)
+$$
+
+This one uses `\lim` and `\frac`, and other things.
+
+$$
+e = \lim_{n \to \infty} \left(1 + \frac{1}{n}\right)^n
+$$
+
+# Include R generated graphics
+
+Include your plotting code in an R chunk, and that will work.
+```{r scatterplot}
+library(ggplot2)
+ggplot(mtcars,
+       mapping = aes(x = disp, y = mpg)
+) + geom_point() +
+  stat_smooth(se = F)
+
+```
+
+It is better to `fig.cap`, `fig.align`, `out.width` and other statements in the chunk definition.
+```{r scatterplot_2, out.width='0.5\\textwidth', fig.cap='A scatterplot and line of best fit.', fig.align='center'}
+library(ggplot2)
+ggplot(mtcars,
+       mapping = aes(x = disp, y = mpg)
+) + geom_point() +
+  stat_smooth(se = F)
+
+```
+Now we can say things like: As you can see in Figure \ref{fig:scatterplot_2}, we have a scatterplot.
+
+```{r cowplot_setup}
+library(cowplot)
+
+p1 <- ggplot(mtcars,
+       mapping = aes(x = disp, y = mpg)
+) + geom_point() + stat_smooth(se = F)
+
+p2 <- ggplot(mtcars,
+       mapping = aes(x = wt, y = hp)
+) + geom_point() + stat_smooth(se = F)
+```
+
+```{r cowplot_1, fig.cap='A cowplot', fig.align='center', out.width='0.5\\textwidth'}
+# Side by side
+plot_grid(p1, p2, labels=c('a', 'b'))
+```
+
+```{r cowplot_2, fig.cap='Another cowplot', fig.align='center', out.width='0.5\\textwidth'}
+# On top of each other
+plot_grid(p1, p2, labels=c('a', 'b'), nrow = 2, align = "v")
+```
+
+See [here](https://cran.r-project.org/web/packages/cowplot/vignettes/introduction.html) for more.
+
+

@@ -1,0 +1,12 @@
+```{r, echo=FALSE}
+set.seed(101)
+N <- 50
+mu <- 100
+sigma <- 15
+x <- rnorm(N, mean=mu, sd=sigma)
+```
+
+The mean of a random sample of `r N` numbers,
+drawn independently from a normal distribution 
+with mean `r mu` and standard deviation `r sigma`, 
+is `r round(mean(x), 2)`.

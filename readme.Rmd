@@ -1,0 +1,17 @@
+---
+title: "A [SIPS 2019](https://www.improvingpsych.org/SIPS2019/) workshop on doing reproducible research with RMarkdown and Git"
+author: Mark Andrews
+date: July 8, 2019
+output: 
+  github_document:
+    toc: true
+    toc_depth: 2
+---
+
+```{r, echo=FALSE}
+knitr::opts_chunk$set(echo = FALSE, message = FALSE, warning = FALSE)
+if (Sys.Date() <= '2019-07-08') {will_or_was <- 'will be'} else {will_or_was <- 'was'}
+
+```
+  
+This workshop `r will_or_was` in room *Maxima* in the *Engels Meeting and Conference Center* [Stationsplein 45, 3013 AK Rotterdam](https://goo.gl/maps/CNkJifuEYnvw2EM1A) from 9:30 to 14:15 (with a break at 11:00-11:30 and 12:15-13:30) on July, 8, 2019.
