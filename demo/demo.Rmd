@@ -82,15 +82,15 @@ We can create links to [here](https://www.improvingpsych.org/SIPS2019/).
 -->
 \pagebreak
 
-![A cute monkey](include/monkey.jpg)
+![A cute monkey](monkey.jpg)
 
-```{r, echo=F, include_image, fig.cap="The same cute monkey"}
-knitr::include_graphics('include/monkey.jpg')
-```
+<!-- # ```{r, echo=F, include_image, fig.cap="The same cute monkey"} -->
+<!-- # knitr::include_graphics('include/monkey.jpg') -->
+<!-- # ``` -->
 
-```{r, echo=FALSE,fig.cap="Two monkeys side by side.",fig.show='hold',fig.align='center'}
-knitr::include_graphics(c('include/monkey.jpg', 'include/monkey.jpg'))
-```
+<!-- # ```{r, echo=FALSE,fig.cap="Two monkeys side by side.",fig.show='hold',fig.align='center'} -->
+<!-- # knitr::include_graphics(c('include/monkey.jpg', 'include/monkey.jpg')) -->
+<!-- # ``` -->
 
 
 
@@ -234,3 +234,34 @@ plot_grid(p1, p2, labels=c('a', 'b'), nrow = 2, align = "v")
 See [here](https://cran.r-project.org/web/packages/cowplot/vignettes/introduction.html) for more.
 
 
+# Tables
+
+There are a few different ways to ways to nicely render tables. These include `xtable`, `pander`, and `kable`. Here, we'll use `kable`. It is part of the `knitr`, which can be loaded or else we can use `knitr::kable(...)`.
+
+```{r}
+library(knitr)
+kable(mtcars)
+```
+
+This can be used with the output of statistical analysis programs like, for example, `lm`.
+```{r kable_lm}
+model <- lm(mpg ~ disp, data=mtcars)
+kable(summary(model)$coefficients)
+```
+
+There are a number of things we can control with `kable`.
+
+format = 'latex', booktabs = TRUE, digits = 3
+```{r kable_lm_2}
+kable(summary(model)$coefficients, format = 'latex')
+```
+
+format = 'latex', booktabs = TRUE, digits = 3
+```{r kable_lm_3}
+kable(summary(model)$coefficients, booktabs = TRUE)
+```
+
+format = 'latex', booktabs = TRUE, digits = 3
+```{r kable_lm_4}
+kable(summary(model)$coefficients, digits = 3)
+```
