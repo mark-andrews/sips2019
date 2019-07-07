@@ -48,6 +48,9 @@ draft             : no
 documentclass     : "apa6"
 classoption       : "doc"
 output            : papaja::apa6_pdf
+
+appendix:
+  "papaja_appendix.Rmd"
 ---
 
 ```{r setup, include = FALSE}
@@ -155,3 +158,8 @@ r_refs(file = "refs.bib")
 
 <div id = "refs"></div>
 \endgroup
+
+```{r echo = FALSE, results = 'asis'}
+render_appendix('papaja_appendix.Rmd')
+```
+

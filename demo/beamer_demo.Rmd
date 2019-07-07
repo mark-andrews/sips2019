@@ -1,35 +1,38 @@
 ---
-title: "Beamer Slides"
-author: "Mark Andrews"
-date: "07/07/2019"
-output: beamer_presentation
+title: A Beamer Slides Demo
+author: |
+  | Mark Andrews
+  | University of Life
+  |
+  | \faTwitter\ ```@xmjandrews```
+output: 
+  beamer_presentation:
+    incremental: false
+    fonttheme: "serif"
+    highlight: pygments
+    includes: 
+      in_header: beamer_preamble.tex
+
 ---
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = FALSE)
+# Some math(s)
+\framesubtitle{With subtitles too (if so desired)}
+
+$$
+x_i \sim \mathrm{N}(\mu, \sigma^2),\quad\text{$i \in 1\ldots n$},
+$$
+
+# Slide 2
+
+* Item 4
+* Item 5
+
+# Some code
+
+```python
+class Foo(object):
+  def __init__(self):
+    self.x = 42
+    
+foo = Foo()
 ```
-
-## R Markdown
-
-This is an R Markdown presentation. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
-
-When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document.
-
-## Slide with Bullets
-
-- Bullet 1
-- Bullet 2
-- Bullet 3
-
-## Slide with R Output
-
-```{r cars, echo = TRUE}
-summary(cars)
-```
-
-## Slide with Plot
-
-```{r pressure}
-plot(pressure)
-```
-

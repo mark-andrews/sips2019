@@ -1,0 +1,4 @@
+This is an appendix. It has stuff in it.
+
+For some reason, they want a blank line at the end of the source document. That's fine by me.
+

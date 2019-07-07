@@ -1,0 +1,186 @@
+---
+title: "Introduction to Git"
+author: Mark Andrews
+date: "`r format(Sys.Date(), '%B %d, %Y')`"
+output: 
+  github_document:
+    pandoc_args: --webtex
+
+
+---
+
+This is about learning Git by using Git commands. 
+There are GUIs to Git, and there are even GUIs to Git in RStudio. Personally, I
+do not see their value and I do not recommend them at all. There are a just a
+small number of Git commands to learn, and once they are learned using Git is
+fast and efficient. By contrast, with a GUI, you'll be less and inefficient and
+you'll probably won't learn much beyond the absolute basics. 
+
+<!-- The following code will definitely work on Linux and in the [Git Bash shell](https://git-scm.com/downloads) on -->
+<!-- Windows (I tested both), and I am $1 - \epsilon$ certain it will work in a bash -->
+<!-- shell (or other shells) in the macOS's terminal. Some of the steps, such as -->
+<!-- creating an empty directory, creating text files, editing files, etc., can be -->
+<!-- done in many different ways, such as with operating system's normal file -->
+<!-- managers (e.g. macOS's "Finder", Window's "File Explorer"), and then making, -->
+<!-- deleting, and editing files in, e.g., RStudio. It is only the Git commands -->
+<!-- themselves, which all begin `git ...`, that need to executed in the your terminal. -->
+
+*Note on terminology*: When I say *terminal* below, I mean a Linux or macOS
+terminal or the Git Bash shell on Windows. By the way, depending on how you've
+set up RStudio, this terminal should be available in RStudio (try Alt+Shift+R if
+you don't already see a tab for a terminal in the pane where the Console etc is.
+When I say *directory*, I just mean what is usually called a "folder" on Windows
+and macOS. When I say Git *project* or *repository* (or *repo*), I mean a just
+an otherwise normal directory with files and subdirectories that is, or is going
+to be, under Git version control.
+
+# Step 1: Make a Git repository for an RStudio project
+
+
+In RStudio, choose *New Project* and then *New Directory* and when providing the
+name, tick the *Create a git repository* tick box. Now, add a few text based
+files. For example, you could make a few `.R` or `.Rmd` or `.txt` or `.md` or
+`.csv` files. Feel free to make sub-directories, such as `data` and `analysis`,
+and put files there.   a `readme.md` file at the top level of the directory is a
+good idea.
+
+# Step 2: Add files to the RStudio project Git repository
+
+Open your os terminal in, or `cd` into, the root of the repository. Then, type the following Git command.
+```{r, engine = 'bash', eval = FALSE}
+git status 
+```
+You should see a lot of *Untracked* files. We want to *stage* these files. *Staging* is making them ready for committing, but not yet committed. We stage the files with a `git add` command such as the following.
+```{r, engine = 'bash', eval = FALSE}
+git add readme.md
+```
+Now do `git status` again. You should see that you have changes that are ready to be committed.
+
+# Step 3: Commit your staged changes
+
+When you have added all the files you want to add, then you are ready to make your first `commit`. Type the following.
+```{r, engine = 'bash', eval = FALSE}
+git commit
+```
+The chances are that a [vim](https://www.vim.org/) (or even [vi](https://en.wikipedia.org/wiki/Vi)) editor will pop up. Most people don't want to use vim^[Personally, I use it all the time, as do many others, especially Linux users, but at the very least, it takes some getting used to, and if you're learning Git for the first time, learning vim at the same time just makes your life unecessarily difficult.] You can configure your terminal to bring up another editor, but that's beyond the scope of this introduction. For now, let's just get out of vim/vi by typing `:q` and then return. 
+
+To make life easier and postpone the issue of configuring an editor for commit messages, we'll just use short messages, which can be written on the command line with the `-m` option. For example, 
+```{r, engine = 'bash', eval = FALSE}
+git commit -m 'Initialize repository'
+```
+
+Once you've done that, you've now created your first version of your project. You can view what you've just committed by looking at your logs.
+```{r, engine = 'bash', eval = FALSE}
+git log
+```
+
+You should see something like this.
+```
+commit 2050c914857529ddc0a7986e3858f7a46b8be2c2
+Author: Mark Andrews <mark.andrews@ntu.ac.uk>
+Date:   Sun Jul 7 00:36:31 2019 +0100
+
+    Initialize repository
+
+```
+
+To get more information from your logs, try the following.
+```{r, engine = 'bash', eval = FALSE}
+git log --name-only # Show all the files you committed
+git log -p # Show the "diff" of what was committed
+```
+
+
+# Step 4: Make edits or add new files or delete files
+
+Now we want to continue working on RStudio project code as normal. By doing so,
+we'd edit our existing files, add new ones, delete old ones. After working for
+some time, we can review our changes with a status check:
+```{r, engine = 'bash', eval = FALSE}
+git status 
+```
+Your status might now look something like this, which shows a mixture of modified, deleted and new files.
+```
+On branch master
+Changes not staged for commit:
+  (use "git add/rm <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+        modified:   foobaz.Rproj
+        deleted:    readme.md
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+        foobaz.md
+
+no changes added to commit (use "git add" and/or "git commit -a")
+```
+
+You can stage the modified files and the new files with a `git add` command. For example, to stage the modified file `foobaz.Rproj` and the new files `foobaz.md`, do the following:
+```{r, engine = 'bash', eval = FALSE}
+git add foobaz.Rproj foobaz.md
+```
+And to stage the deletion of `readme.md`, do the following.
+```{r, engine = 'bash', eval = FALSE}
+git rm readme.md
+```
+
+Now, doing 
+```{r, engine = 'bash', eval = FALSE}
+git status 
+```
+should give you something like 
+```
+On branch master
+Changes to be committed:
+  (use "git reset HEAD <file>..." to unstage)
+
+        modified:   foobaz.Rproj
+        new file:   foobaz.md
+        deleted:    readme.md
+
+```
+These are your ready-to-be-committed files. You commit them, as usual, with a `commit`:
+```{r, engine = 'bash', eval = FALSE}
+git commit -m 'Made some muy importante changes'
+```
+
+You can now look at your logs to review the history of your project thus far. 
+```{r, engine = 'bash', eval = FALSE}
+git log
+```
+
+# Step 5: Push to a "remote"
+
+In GitHub (though you have many other options), create a new repository. 
+* You can name the repository anything you like.
+* Provide a short description (this is just for GitHub).
+* Do *not* add a README. Do *not* add a `.gitignore`. Do *not* add a licence. We have already, or can easily, take care of these things ourselves.
+
+After Github creates the remote repo, it will give you some information. Use what it says in the section entitled **…or push an existing repository from the command line**. Back in your terminal, copy (and modify, if you wish) what it says, which could be something like this:
+```{r, engine = 'bash', eval = FALSE}
+git remote add origin https://github.com/mark-andrews/myproject.git
+```
+Now, you are ready to push (or specifically, to push the master branch to the remote named `origin`).
+```{r, engine = 'bash', eval = FALSE}
+git push -u origin master
+```
+
+Now, in a web browser, go to the url of your GitHub repo (e.g. `https://github.com/mark-andrews/myproject.git`) and marvel at what you behold.
+
+# Step 6: Development, commit, push
+
+Now, continuing developing your work as normal and follow the steps outlined in Step 4 to stage and commit your work. Whenever you are ready, you can push.
+```{r, engine = 'bash', eval = FALSE}
+git push 
+```
+Note that you don't need to specify the remote name or branch name anymore, because it will got with `origin` and `master` by default.
+
+You do not have to push after every commit. It is up to you when you push. You could, for example, make commits every few minutes, but only push once per day. When you push, you'll push all your new commits that are not yet on the remote.
+
+# Step 7: Checkout, revert, reset, branch, merge, rebase
+
+Thus far, we've covered the basics, but we've said very little at all 
+about how to use Git properly, i.e. as a version control system, and not just a command driven dropbox. If that's all it were, it would be very exciting. To understand how to use Git for version control goes beyond this introduction. There are excellent guides, however. My recommendation is the [Pro Git book](https://git-scm.com/book/en/v2), which is freely available online. 
+
