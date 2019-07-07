@@ -11,9 +11,12 @@ Rotterdam](https://goo.gl/maps/CNkJifuEYnvw2EM1A) from 9:30 to 14:15
 
 This workshop will be hands-on and learn-by-doing and we will spend most
 of the time creating articles and slides using RMarkdown, and working
-with Git. I have some slides, however.
+with Git. I have some slides and notes, however.
 
   - [Workshop slides](slides/slides.pdf)
+  - [Introduction to Git](git_intro/git_intro.md)
+
+And the int
 
 Anything else that is needed can be obtained by browsing through the
 GitHub repository or by downloading all of its content as a zip, or
