@@ -15,7 +15,7 @@ output:
   includes:
    in_header: include/slides_preamble.tex
 bibliography: include/references.bib
-csl: '../demo/apa.csl'
+csl: '../demos/apa.csl'
 nocite: |
   @forder2019hearing
 ---
@@ -173,11 +173,11 @@ cat(htmltools::includeText("include/rmarkdown-example-chunk-5.Rmd"))
 * Git (and a Git server) provides a means of sharing your research compendium and its updates, and this can be done from the beginning of the research and continually throughout its entire development.
 * But it's not just another "dropbox": It is distributed version control system. 
   * It allows open, distributed, collaborative development of research and data analysis code, like the open source development model for software generally.
-  * Even for small teams, it provides a means for efficient and organized development of source code, including (and especially) for writing the source code for our articles, slides, etc (remember (what usually happens)[http://phdcomics.com/archive_print.php?comicid=1531]). 
-  * Even for individuals, it allows for efficient and organized development of our source code.
+  * Even for small teams, it provides a means for efficient and organized development of source code, including (and especially) for writing the source code for our articles, slides, etc (no more of this: http://phdcomics.com/comics/archive_print.php?comicid=1531). 
+  * Even for individuals, it allows for efficient and organized development.
   * And it is (almost) endlessly fault tolerant. So long as there is one clone somewhere, the entire project and its version history is preserved entirely.
 
-* Git is designed for source code (i.e. text files) management. Data and other "assets" can be attached to (rather than kept within) the repository using `git fat`, `git annex`, `git lfs`, etc.
+
 
 # Git: Tiny tutorial
 
