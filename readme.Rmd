@@ -18,7 +18,6 @@ This workshop will be hands-on and learn-by-doing and we will spend most of the 
 * [Workshop slides](slides/slides.pdf)
 * [Introduction to Git](git_intro/git_intro.md)
 
-And the int
 
 Anything else that is needed can be obtained by browsing through the GitHub repository or by downloading all of its content as a zip, or better yet, by cloning this repository.
 
