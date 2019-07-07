@@ -13,6 +13,8 @@ abstract: |
   enim ornare fermentum.
 editor_options: 
   chunk_output_type: inline
+bibliography: refs.bib
+csl: apa.csl
 ---
 
 ```{r setup, echo=F}
@@ -286,3 +288,10 @@ kable(summary(model)$coefficients, booktabs = TRUE, digits = 3) %>%
 
 ```
 
+# Citations
+
+We can cite works in different ways [@lamport1994latex]. As @anscombe1973graphs has shown, data visualization is important. The `citr` package is very helpful.
+
+
+\newpage
+# References

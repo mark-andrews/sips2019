@@ -1,0 +1,157 @@
+---
+title             : "Papaja is Good"
+shorttitle        : "papaja"
+
+author: 
+  - name          : "Mark Andrews"
+    affiliation   : "1"
+    corresponding : yes    # Define only one corresponding author
+    address       : "Snail Mail"
+    email         : "mark.andrews@ntu.ac.uk"
+  - name          : "Issac Newton"
+    affiliation   : "1,2"
+
+affiliation:
+  - id            : "1"
+    institution   : "University of Life"
+  - id            : "2"
+    institution   : "King's School, Grantham"
+
+authornote: |
+  This manuscript is dynamically generated.
+
+abstract: |
+  Donec porttitor tellus magna, sit amet porttitor tellus facilisis ac. In velit
+  ante, varius varius lobortis in, cursus quis lorem. Sed pretium fringilla
+  velit, ut sagittis eros congue quis. Cras efficitur ac felis placerat molestie.
+  Duis rhoncus velit libero, ac fermentum ipsum iaculis eget. Proin leo lorem,
+  dictum eu pretium ut, dignissim in tortor. Suspendisse leo tellus, semper at
+  arcu et, egestas luctus mi. Praesent condimentum, orci non molestie venenatis,
+  nibh nunc eleifend nisi, rutrum pellentesque mauris orci at quam. Nulla
+  facilisi. Morbi ut posuere urna, eu cursus libero. Etiam mollis odio at
+  fringilla pulvinar. Cras non pulvinar dui. Mauris convallis pretium nisl et
+  aliquam. Quisque ultricies augue elementum, cursus augue et, faucibus turpis.
+  
+keywords          : "Open; Transparent; Reproducible."
+wordcount         : "10000"
+
+bibliography      : ["refs.bib"]
+
+floatsintext      : yes # please
+figurelist        : no
+tablelist         : no
+footnotelist      : no
+linenumbers       : no
+mask              : no
+draft             : no
+
+documentclass     : "apa6"
+classoption       : "doc"
+output            : papaja::apa6_pdf
+---
+
+```{r setup, include = FALSE}
+library("papaja")
+```
+
+```{r analysis-preferences}
+# Seed for random number generation
+set.seed(42)
+knitr::opts_chunk$set(cache.extra = knitr::rand_seed)
+```
+
+# Introduction
+
+roin at elit sed est euismod auctor ut vehicula est. Proin vulputate nisl sed
+nisi molestie mattis. Interdum et malesuada fames ac ante ipsum primis in
+faucibus. Curabitur malesuada tempor nibh, non auctor nulla dictum vitae. Donec
+blandit id ante vitae venenatis. Class aptent taciti sociosqu ad litora
+torquent per conubia nostra, per inceptos himenaeos. Quisque commodo pretium
+orci eu efficitur. Mauris a elementum ligula. Fusce a sapien nulla. Morbi odio
+lectus, maximus quis nisl accumsan, mattis consequat tortor.
+
+Sed ut tempus est, in elementum sem. Duis euismod non nunc convallis suscipit.
+Proin elementum in diam feugiat egestas. Nullam dictum ultricies mi, at cursus
+nisi cursus non. Morbi justo orci, efficitur in eros sed, finibus tincidunt
+enim. In hac habitasse platea dictumst. Sed rutrum libero non ex finibus
+vestibulum.
+
+Aliquam felis purus, tempor ac finibus porttitor, semper in odio. Nam tempor
+turpis urna, vel congue libero imperdiet eu. Duis non arcu est. Donec vel nibh
+eget orci scelerisque euismod. Mauris tempus massa urna, consectetur
+sollicitudin est pharetra at. Cras eu nibh cursus, sollicitudin mi ut, rutrum
+lacus. Phasellus nibh risus, aliquam ut ullamcorper non, venenatis eget libero.
+Vivamus aliquet dapibus accumsan. Donec ac condimentum lorem. Maecenas ac
+libero vel ligula vestibulum commodo. Nulla scelerisque eget odio in posuere.
+
+Nunc iaculis tristique ante vitae ullamcorper. Donec at mi sollicitudin,
+pretium nibh at, vestibulum ipsum. Aenean varius magna vel augue vulputate, in
+maximus nibh posuere. Nulla ipsum tortor, sodales elementum augue et, efficitur
+tincidunt sem. Praesent ultrices iaculis risus quis posuere. Aenean dolor urna,
+aliquet id porta sit amet, consectetur nec eros. Nunc blandit sem quis mi
+elementum, finibus sollicitudin quam vulputate. Sed laoreet, risus et auctor
+finibus, ante velit fermentum est, vitae rutrum nisl leo a arcu. Sed
+scelerisque eros nec quam ornare accumsan. Aliquam quis risus ultricies,
+pellentesque augue eget, aliquet ante. Nam sit amet purus non enim tincidunt
+tincidunt vel eget dui. Donec urna nunc, eleifend eget fermentum quis,
+porttitor ac quam. In elementum mollis erat non consectetur. Etiam cursus neque
+erat, sit amet sagittis quam dapibus et. Duis tempor dui nec lacus condimentum,
+ut molestie quam tempus.
+
+Nam dolor lacus, ultricies eu cursus et, faucibus eu lacus. Nam auctor lobortis
+enim, pharetra commodo ligula tempor sed. Interdum et malesuada fames ac ante
+ipsum primis in faucibus. Integer purus metus, congue vitae venenatis nec,
+gravida ac risus. Praesent sit amet bibendum ipsum. Suspendisse facilisis
+ullamcorper pharetra. Donec sagittis, magna sit amet rhoncus sagittis, diam
+nunc varius tortor, sit amet auctor leo mauris eu turpis. Ut consectetur a
+ipsum eget accumsan. Quisque lobortis nisl quis dolor ultricies, non eleifend
+mi dictum. Maecenas vitae velit augue. Vivamus ac velit sodales sem dapibus
+ultrices. In faucibus orci ac enim accumsan, id porta sem rutrum. Fusce tempus
+est ac cursus eleifend. Sed facilisis hendrerit mattis. Fusce a lectus commodo
+dolor pretium mattis.
+
+Aenean id purus dui. Nam volutpat diam vitae eros vehicula, eu congue enim
+volutpat. Sed at diam ante. Sed ut arcu non est egestas vehicula. Ut congue
+dictum ipsum, eu lobortis magna elementum sit amet. Nullam eget massa posuere,
+porttitor mauris in, scelerisque nibh. Sed malesuada massa eget erat porttitor
+placerat. Suspendisse eleifend eu erat sed bibendum. Quisque gravida venenatis
+pharetra. Sed rutrum ut eros euismod fringilla.
+
+Proin luctus porttitor dignissim. Fusce eleifend rutrum dui. Cras eu elit
+nulla. Mauris lacinia, elit id scelerisque rhoncus, ex metus placerat sem,
+vitae tincidunt massa leo id felis. Aliquam convallis, urna vitae cursus
+efficitur, magna ligula tempus metus, eget gravida libero tortor at leo. Ut
+quis pulvinar massa, ac efficitur libero. Suspendisse vel arcu nec leo lacinia
+rutrum. Aliquam sed tortor et diam feugiat vehicula vel quis risus.
+
+# Methods
+We report how we determined our sample size, all data exclusions (if any), all manipulations, and all measures in the study. <!-- 21-word solution (Simmons, Nelson & Simonsohn, 2012; retrieved from http://ssrn.com/abstract=2160588) -->
+
+## Participants
+
+## Material
+
+## Procedure
+
+## Data analysis
+We used `r cite_r("refs.bib")` for all our analyses.
+
+
+# Results
+
+# Discussion
+
+
+\newpage
+
+# References
+```{r create_r-references}
+r_refs(file = "refs.bib")
+```
+
+\begingroup
+\setlength{\parindent}{-0.5in}
+\setlength{\leftskip}{0.5in}
+
+<div id = "refs"></div>
+\endgroup

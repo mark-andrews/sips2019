@@ -15,7 +15,7 @@ output:
   includes:
    in_header: include/slides_preamble.tex
 bibliography: include/references.bib
-csl: include/apa.csl
+csl: '../demo/apa.csl'
 nocite: |
   @forder2019hearing
 ---
