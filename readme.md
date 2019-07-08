@@ -15,8 +15,11 @@ with Git. I have some slides and notes, however.
 
   - [Workshop slides](slides/slides.pdf)
   - [Introduction to Git](git_intro/git_intro.md)
-
-And the int
+  - In the workshop, one of the major aims will be to create an [article
+    like this](demos/demo.pdf) from scratch
+  - And we’ll also try to make [beamer slides like
+    this](demos/beamer_demo.pdf) and a [papaja based manuscript like
+    this](demos/papaja_demo.pdf) from scratch too
 
 Anything else that is needed can be obtained by browsing through the
 GitHub repository or by downloading all of its content as a zip, or
